@@ -6,42 +6,32 @@
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0069ED",
-    "light": "#4D9CFF",
+    "primary": "#0A71FF",
+    "light": "#3C8EFF",
     "dark": "#0050B4",
     "ultraLight": "#EBF3FE",
     "ultraDark": "#003372"
   },
   "topbarLinks": [
     {
-      "name": "Book a demo",
-      "url": "https://www.explo.co/book-a-demo"
+      "name": "Sign in",
+      "url": "https://web.namesandfaces.com/"
     }
   ],
   "topbarCtaButton": {
-    "name": "Start free trial",
-    "url": "https://app.explo.co/signup"
+    "name": "Get started",
+    "url": "https://www.namesandfaces.com/get-started"
   },
   "anchors": [
     {
-      "name": "API Reference",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
+      "name": "Integrations",
+      "icon": "plug",
+      "url": "https://www.namesandfaces.com/integrations"
     },
     {
-      "name": "Case Studies",
-      "icon": "bookmark",
-      "url": "https://www.explo.co/case-studies"
-    },
-    {
-      "name": "Security",
-      "icon": "shield-halved",
-      "url": "https://security.explo.co"
-    },
-    {
-      "name": "Changelog",
-      "icon": "list",
-      "url": "https://www.explo.co/changelog"
+      "name": "Contact us",
+      "icon": "newspaper",
+      "url": "https://www.namesandfaces.com/contact-us"
     }
   ],
   "navigation": [
