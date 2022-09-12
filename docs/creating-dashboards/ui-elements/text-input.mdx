@@ -1,0 +1,43 @@
+---
+title: "Text Input"
+description: "The text input element allows you to process user inputted text on your dashboard."
+---
+
+## What it does
+
+The text input allows you to capture a users text input and configure the dashboard to respond to the inputted text. 
+
+## Configuration
+
+### Basic Configuration
+
+Configuration Option
+
+Description
+
+Label
+
+This label appears above the text input and can be configured to describe how the text input should be used. 
+
+Placeholder Text
+
+This is the message shown in the text input when no input has been written by the user yet.
+
+Search Icon
+
+This icon can be toggled on if the text input is being used as a search bar. 
+
+
+## Variable Usage
+
+In the SQL query, use the following syntax
+
+\--- search bar usage: If you wish to use this text input element as a search bar for, 
+
+\--- a data table, you can configure the SQL editor like this, and the user will be 
+
+\--- able to search the table based on column\_1
+
+WHERE 1\=1
+
+\[\[AND column\_1 \= {{text\_input1}}\]\]

@@ -1,0 +1,110 @@
+---
+title: "Dropdown Select"
+description: "Dropdown selects allow your customers to dynamically change the dashboard based on options they select."
+---
+
+## What it does
+
+This component allows you to create a dropdown input that your users can interact with to filter and group data on the dashboard.
+
+When the element is added to the dashboard, it looks like:
+
+## Configuration
+
+Configuration panel for dropdown select
+
+### Basic Config
+
+Configuration Option
+
+Description
+
+Label
+
+This text is the label given to the dropdown select on the dashboard. The label is placed above the dropdown. This field can be empty.
+
+Placeholder
+
+This is the message shown in the dropdown when no option has been selected by the user yet.
+
+Enable Filtering
+
+This toggle controls whether or not the dropdown options menu is filterable. By default, the menu is filterable.
+
+When filterable, a search input appears above the options that allows users to type text and filter down the options. This is recommended when your dropdown has a long list of options
+
+Enable clearing selection
+
+This toggle controls whether or not the user can click the "x" button to clear the selected option.
+
+By default, this feature is enabled, meaning that users can clear out the selected option in a dropdown.
+
+Disabled clearing selections in order to ensure that the dropdown will always have a value.
+
+### Manual vs. Query
+
+There are two ways to supply options to the dropdown. **Manual** dropdowns allow you to provide hardcoded values. **Query** dropdowns allow you to specify the options based on a dataset defined on the dashboard. This is useful for when you want to dynamically populate the dropdown with options from you database
+
+### Manual Config
+
+Manual dropdowns are powered by hardcoded lists of strings or numbers. You may provide only a `Values` list, in which case the values will be use to display the options.
+
+<Info>
+
+The Values, Displays, and Default Value fields all take in inputs as javascript. This means that you must put quotes around strings. For example:
+
+**Invalid**: `[option-1, option-2, option-3]`
+
+**Valid**: `["option-1", "option-2", "option-3"]`
+
+</Info>
+
+Configuration Option
+
+Description
+
+Values
+
+This option takes in a list of strings and numbers. When a user selects an option from the dropdown, the associated value is what will be used in the SQL query to filter or group the data.
+
+This list is defined as javascript and so you must use quotes on strings.
+
+Displays
+
+This option takes in a list of strings and numbers. This will define what the dropdown options look like when a user opens the dropdown.
+
+When the user selects an option, the value used in the SQL query will be the corresponding `Value` option.
+
+The `Displays` list should have the same number of elements as the `Values` list.
+
+Default Value
+
+This option takes in a string or number. This defines what option the dropdown will start with when the page loads.
+
+Use this option, in tandem with the disabling clearing selections, to ensure that the dropdown always has a value present.
+
+## Query Config
+
+Query dropdowns use a dataset to power the contents of the dropdown. You must define the dataset to power the dropdown using the SQL editor on the dashboard editing page.
+
+Configuration Option
+
+Description
+
+Dataset
+
+This is a dataset defined on the dashboard which will be used to populate values for the dropdown
+
+Values Field
+
+From the selected dataset, the columns on the table are available to select for the values field. This field represents what value will be used when the dropdown is selected. If no display field is selected, this will also be used to display the options
+
+Displays Field
+
+Also from the selected dataset, the columns on the table are available to select for the display field. The associated display will be shown in the dropdown. If the user selects that option, the value is what will be used in the [variable](/creating-dashboards/variables).
+
+Default to first option
+
+If you would like to make your dropdown start with a default value, you can select this option. We will then pick the first value from the dataset when we query it and load the dashboard with that value.
+
+Use the DISTINCT statement in SQL to only pull a distinct list of options for the dropdown options

@@ -1,0 +1,57 @@
+---
+title: "Analytics Reporting"
+description: "Hook your embedded dashboards up to your own analytics endpoints to receive information about page views and clicks."
+---
+
+## Configuring Analytics
+
+On the settings page, there's a subsection in the Developers section for Analytics. From here, you can supply a URL and, optionally, authorization token for Explo to send information to and select the set of actions you want reported.
+
+Note that the url must be formatted as a valid url with `http://` or `https://`.
+
+## Analytics Data
+
+When, for example, your dashboard is viewed from a Share link, Explo will send a request to the supplied URL with the following shape.
+
+| Field      | Type   | Description                            |
+| ---------- | ------ | -------------------------------------- |
+| user_id    | string | Id of the user who triggered the event |
+| name       | string | The type of event triggered            |
+| properties | json   | Metadata about the event               |
+
+### Event Types
+
+| Name                         |
+| ---------------------------- |
+| Dashboard Page Viewed        |
+| Shared Dashboard Page Viewed |
+| Share Button Clicked         |
+| CSV Downloaded               |
+| Table Sorted                 |
+| Table Paged                  |
+| Table Filtered               |
+| Dropdown Selected            |
+| Multiselect Selected         |
+| Datepicker Selected          |
+
+### Metadata Properties
+
+The following will be present on every request:
+
+| Field                   | Type   |
+| ----------------------- | ------ |
+| team_id                 | int    |
+| team_name               | string |
+| end_user_group_id       | int    |
+| end_user_group_name     | string |
+| dashboard_template_id   | int    |
+| dashboard_template_name | string |
+
+Additionally, page view events will have the following extra properties:
+
+| Field         | Type   | Description                                                  |
+| ------------- | ------ | ------------------------------------------------------------ |
+| is_production | bool   | true if this is a production dashboard                       |
+| environment   | string | the environment tag supplied when the dashboard was embedded |
+| is_strict     | bool   | whether the dashboard was embedded in strict mode            |
+| embed_source  | string | share or iframe, depending on how the dashboard was embedded |

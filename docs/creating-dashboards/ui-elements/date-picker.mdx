@@ -1,0 +1,73 @@
+---
+title: "Date Picker"
+description: "Date pickers allows your customers to filter the dashboard to a specific slice of data in time."
+---
+
+## What it does
+
+This component allows you to create a date picker input which your users can use to filter data.
+
+When the element is added to the dashboard, it looks like:
+
+## Configuration
+
+### Basic Configuration
+
+Configuration Option
+
+Description
+
+Label
+
+This text is the label given to the dropdown select on the dashboard. The label is placed above the dropdown. This field can be empty.
+
+Allow Time Selection
+
+(default: True) If selected, the user will be able to select a time in addition to a date. The variable used in your queries will also provide a time.
+
+Enable clearing selection
+
+This toggle controls whether or not the user can click the "x" button to clear the selected option.
+
+By default, this feature is enabled, meaning that users can clear out the selected option in a dropdown.
+
+Disabled clearing selections in order to ensure that the dropdown will always have a value.
+
+### Default Value Configuration
+
+There are two ways to define a default value for the date. Either as an exact date or as a relative date. The default value selected with be set when the dashboard loads.
+
+### Selectable Range Configuration
+
+The selectable range is the range of values that you will allow your users to select. This is useful if you don't want your users to select data before a certain time or want to limit their queries to the current month/year/etc.
+
+## Variable Usage
+
+To access the elements in the SQL editor, use the following syntax:
+
+For users connected to a BigQuery warehouse, you will need to cast the data variable to the correct data type using the code below.
+
+```sql Typical Usage
+
+WHERE 1=1 [[AND date_field >= {{datepicker1}}]]
+
+[[AND date_field <= {{datepicker2}}]]
+
+[[AND DATE(date_field) = {{datepicker3}}]]
+```
+
+```sql Casting to Date Type
+WHERE 1=1 [[AND date_field >= DATE({{datepicker1}})]]
+
+[[AND date_field <= DATE({{datepicker2}})]]
+
+[[AND DATE(date_field) = DATE({{datepicker3}})]]
+```
+
+```sql Casting to Timestamp Type
+WHERE 1=1 [[AND date_time >= TIMESTAMP({{datepicker1}})]]
+
+[[AND date_time <= TIMESTAMP({{datepicker2}})]]
+
+[[AND TIMESTAMP(date_time) = TIMESTAMP({{datepicker3}})]]
+```

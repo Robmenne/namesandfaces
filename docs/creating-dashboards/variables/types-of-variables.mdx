@@ -1,0 +1,35 @@
+---
+title: "Types Of Variables"
+---
+
+There are a few main ways that variables are introduced into the application:
+
+1. User Group
+
+2. Dashboard Elements
+
+3. Custom Variables
+
+### User Group
+
+In order to filter down data to a specific user group, a couple of variables are provided.
+
+- `user_group_id` : This is the ID provided when you [create a user group](/end-user-group-api).
+
+- `user_group_name` : This is the name provided when the user group is created.
+
+- `user_group.*` : All variables passed in the properties object when the user group is created are accessed through this format. So for example if you have a key in the properties object called `filter_value` then you can access that value by using `user_group.filter_value`.
+
+### Dashboard Elements
+
+When you create interactive dashboard elements, such as dropdowns, date-pickers, and toggle buttons, you are creating new variables which you can use to connect your users interactions to changes in data.
+
+The default ID for a dropdown
+
+These variables get set when your users interact with the element and select a value. When configuring the component, you will also have the option to set default values so that the dashboard loads preselected with certain options.
+
+### Custom Variables
+
+Custom variables allow users to pass in parameters through the embed code and not on-dashboard components. Click on Manage Custom Variables on the right menu to create and delete custom variables.
+
+These variables can be used just like dashboard elements except you can only pass them in and your users can't configure these. Reference the section below on Embedded Component to learn how to pass values into custom variables.

@@ -1,0 +1,22 @@
+---
+title: "Chart Level Filters"
+description: "Chart level filters allow you to choose the categories that end users will be able to pick from to view charts."
+---
+
+## Adding the Chart Level Filter
+
+In a chart that supports color categorization, you can drag multiple columns into the color category. If more than one color exists, a dropdown will appear on the respective chart that the end user can use to switch between views.
+
+You can also format the dropdown to appear either in the top right corner or below the title of the chart. The default placement is top right corner.
+
+## Variable Usage
+
+The selected item in the dropdown will be saved in a variable and can be used like any other variables across the dashboard.
+
+In the SQL query, use the following syntax
+
+```sql
+WHERE 1=1
+
+[[AND column_1 = {{<insert dataPanelId>.EXPLO_COLOR_CATEGORY}}]]
+```

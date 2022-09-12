@@ -1,0 +1,40 @@
+---
+title: "Internationalization"
+description: "Configure how dates, numbers, and currencies are formatted in your dashboards."
+---
+
+Currently, Explo supports localizing dates, numbers, and currencies for the dashboard builder and your embedded dashboards. Your team's desired locale can be set via the Developer section of the Settings tab and will affect all of your customer's dashboards.
+
+Explo does not currently support translating words in the dashboard view.
+
+## Configuring Internationalization
+
+Currently, you have three options for choosing the desired locale to display your dashboards in.
+
+1. Pass in a locale code via the web component or iFrame
+
+2. Select the option to prefer browser locale via the Settings Tab
+
+3. Select a default language for your team via the Settings Tab
+
+In order of preference, Explo will override any configured settings with a passed in locale code. Explo will then attempt to use browser locale if the option is selected and the user's browser language is supported, before finally defaulting to the default language for your team.
+
+Configuring language settings via the Settings Tab
+
+## Custom Date Formats
+
+For data tables and data panels, you can also pass in a custom format for dates if the premade options don't work for your use case.
+
+Date format options can be found [here](https://day.js.org/docs/en/display/format).
+
+## Supported Languages
+
+- English (en-us)
+
+- French (fr-fr)
+
+- Spanish (es-es)
+
+- Portuguese (Brazilian) (pr-bt)
+
+If there is a language you would like us to support, please email us at [\[email protected\]](/cdn-cgi/l/email-protection) and we can add that for you.

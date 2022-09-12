@@ -1,0 +1,31 @@
+---
+title: "Passing in Variables"
+---
+
+### Embedded Component
+
+When you embed an Explo Dashboard using an embedded component, you can pass in variables directly which are then available anywhere in the dashboard that accepts variables.
+
+```html
+<explo-dashboard
+
+variables={JSON.stringify({
+
+element1: 'value',
+
+element2: 'value2',
+
+})}>
+
+</explo-dashboard>
+```
+
+As demonstrated above, you can pass in a set of key value pairs that define new variables that you can use in your dashboard. Full documentation for the embedded component can be found [here](/embedding-documentation/option-1-web-component/step-2-embed-the-web-component).
+
+### URL Parameters
+
+On any page that loads an Explo dashboard, such as with the embedded component, an iframe URL, or the share URL, Explo looks at the URL to see if any variables are defined there.
+
+For example, the following URL: `https://example.co/reports?dropdown-1=%22BAR%5FCHART%22`
+
+The Explo dashboard will take `dropdown-1` as a variable and use the associated value.

@@ -1,0 +1,30 @@
+---
+title: "Whitelisting your domain"
+description: "Reach out to our team to whitelist your domains before embedding Explo dashboards"
+---
+
+You will need to whitelist your development, staging, and production domains in Explo to enable the embedded component to communicate with our API. For development purposes, we have `localhost` on ports 3000, 3001, 3002, 6700, 8080 whitelisted already.
+
+To add a whitelist rule, go to the Domain Whitelisting section of the settings page. There'll you'll see a list of all the rules your team has added, as well as both a button to add more rules and a text input field that you can use to test a url against your rules.
+
+The following are notes about how Explo whitelisting works:
+
+- Explo's whitelist supports both hardcoded domains and domains that use an asterisk (\*) as a wildcard
+
+  - https://testing.explo.co and https://\*.explo.co will both whitelist https://testing.explo.co, but the second rule would also whitelist https://staging.explo.co
+
+- A wildcard only applies to a single subdomain (the portion of a url between two periods)
+
+  - https://_._.explo.co would whitelist https://site.testing.explo.co, but https://\*.explo.co would not
+
+- Wildcards can also be mixed with hardcoded text within a subdomain
+
+  - https://explo-\*.co whitelists https://explo-testing.co and https://explo-staging.co
+
+- The www is not required for the whitelist rules
+
+  - https://explo.co whitelists both https://www.explo.co and https://explo.co
+
+- You must include a protocol (http or https) in your whitelist rule, and this cannot be wildcarded
+
+If you want to whitelist ALL domains to view your dashboards, you can add `*` as a rule

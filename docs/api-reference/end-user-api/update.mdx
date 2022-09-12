@@ -1,0 +1,48 @@
+---
+title: "Update"
+api: "POST https://api.explo.co/api/update_end_user/"
+---
+
+<ResponseField name="success" type="number">
+
+Indicates whether the call was successful. 1 if successful, 0 if not.
+
+</ResponseField>
+
+<ResponseField name="end_user.provided_id" type="string">
+
+This was the provided_id provided in the request body
+
+</ResponseField>
+
+<ResponseField name="end_user.email" type="string">
+  This was the email provided in the request body
+</ResponseField>
+
+<ResponseField name="end_user.attributes" type="string">
+
+This was the set of attributes provided in the request body
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api.explo.co/api/update_end_user/'
+
+--header 'Content-Type: application/json'
+
+--header 'Explo-Authorization: Token <token>'
+
+--data-raw '{
+
+"provided_id": "example_1",
+
+"email": "[[email protected]](/cdn-cgi/l/email-protection)",
+
+"end_user_group_id": 123
+
+}'
+```
+
+</RequestExample>

@@ -1,0 +1,56 @@
+---
+title: "Timezones"
+description: "Timezones are annoying. Luckily Explo makes it easy to manage timezones for your dashboard on a granular level to enable you to serve data to your customers in the most accurate form possible."
+---
+
+## Default Timezone Behavior
+
+Out of the box, Explo dashboards behave in a predictable fashion with regards to timezones. Explo assumes that all of the data coming from your database is in UTC format ([as it should be](https://dev.to/corykeane/3-simple-rules-for-effectively-handling-dates-and-timezones-1pe0)). We then convert the dates to the local time of the user that is viewing the dashboard to show them the data. 
+
+For example, if a user views the dashboard from PST, then Explo shows all of the dates converted from UTC to PST. If a user views the same dashboard from EST, Explo displays the dates convert from UTC to EST.
+
+## Configurability
+
+If you go to a dashboard's settings dropdown, you will see a section called "Timezone". Here you can choose between two options: "User Local Time" and "UTC".
+
+The default for all new dashboards is User Local Time, which behaves the way described above. In most cases, the default setting should be the best approach and give your end users the most consistent viewing experience. 
+
+However, there are times when you will want to have more granular control or force the end user to view the dashboard in a certain timezone. In those cases you'll want to use the UTC setting.
+
+## UTC Timezone Setting
+
+The UTC configuration gives you the most control over your end user's viewing experience with respect to timezone aware data.
+
+### What it does
+
+UTC dashboards will display all datetime data exactly as it was received from the query. We won't do any conversions to the user's local time. If your DB has a datetime stored at 11 PM UTC, the data on the frontend will interpret and display it as 11 PM.
+
+### Setting a specific timezone
+
+Since the dashboard will show the users the dates exactly as they are coming from the backend, you can use this setting to set the dashboard to either a specific timezone, or a user-configurable timezone.
+
+#### Setting a specific timezone
+
+To do this, you should convert the datetime data in your SQL queries to the timezone using your database's SQL dialect. For example, in postgres, you can convert your data to PST timezone as follows:
+
+select
+
+ created\_at at time zone 'utc' at time zone 'pst'
+
+from users;
+
+When the data is then retrieved from the backend, Explo will show it as is, in PST.
+
+#### User-configurable timezones
+
+It is also possible to create dropdown on the dashboard which your users can then use to set the timezones to their preference. To do this, create a [Dropdown Select element](https://docs.explo.co/creating-dashboards/ui-elements/dropdown-select) and make the options the various timezones that you want your users to be able to use. Default the dropdown to the default timezone you want the dashboard rendered in
+
+Then, in your queries, you can modify the hardcoded timezone to be configurable as such:
+
+select
+
+\[\[created\_at at time zone 'utc' at time zone {{timezone\_dropdown}}\]\]
+
+from users;
+
+Now, when your users switch between timezone options in the dropdown, they can change the timezone of the data in the UI.

@@ -1,0 +1,59 @@
+---
+title: "Update User Group"
+api: "POST https://api.explo.co/api/update_user_group/"
+---
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="user_group.team_id" type="boolean">
+  Indicates whether a new user group was created.
+</ResponseField>
+
+<ResponseField name="user_group.token" type="boolean">
+  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
+  used to identify which user group is viewing the dashboard. You should save
+  this on your end to use when rendering an embedded dashboard.
+</ResponseField>
+
+<ResponseField name="user_group.name" type="string">
+  This is the name of the user group provided in the request body.
+</ResponseField>
+
+<ResponseField name="user_group.provided_id" type="string">
+  This is the user_group_id provided in the request body.
+</ResponseField>
+
+<ResponseField name="user_group.properties" type="JSON | Null">
+  This is the properties object if it was provided in the request body
+</ResponseField>
+
+<ResponseField name="user_group.api_environment_tag" type="JSON or null">
+  This is the environment tag of the user group. Possible values are 'Customer'
+  and 'Testing'
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api.explo.co/api/update_user_group/'
+
+--header 'Content-Type: application/json'
+
+--header 'Explo-Authorization: Token <token>'
+
+--data-raw '{
+
+"user_group_id": "example_1",
+
+"name": "Example 1",
+
+"mapping": {"40": "213", "134": "386"},
+
+"properties": {"filterValue": "value"}
+
+}'
+```
+
+</RequestExample>

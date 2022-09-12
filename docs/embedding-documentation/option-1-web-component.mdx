@@ -1,0 +1,80 @@
+---
+title: "Option 1: Web Component"
+description: "Embed Explo dashboards through a web component"
+---
+
+Add Explo's script tag to the `<head>` of your index.html
+
+```html index.html
+<script src="https://embed.explo.co/bundle.js"></script>
+```
+
+## What is the web component?
+
+The Explo web component is a custom HTML element. This means that it functions as a native HTML element and can be used in any web development context. You can read more about custom HTML elements [here](https://developer.mozilla.org/en-US/docs/Web/Web%5FComponents/Using%5Fcustom%5Felements).
+
+## Where can I use the component?
+
+Since the web component is a custom HTML element, you can use it in any context:
+
+- Directly in an HTML file
+
+- Define it in vanilla JS
+
+- Any JS web framework: React, Vue, Angular, etc
+
+## Embedding the component
+
+The embed component takes in a few different properties. The component is backward-compatible with the previous V0 syntax, but it would be a good idea to start to implement the V1 syntax.
+
+<CodeGroup>
+
+```html V1 Syntax
+<explo-dashboard
+    dash-user-group-token="<dashboard_id>:<group_token>"
+    updateUrlParams={true}
+    isProduction={true}
+    environment="prod"
+    refresh-minutes={10}
+    variables={JSON.stringify({ element1: 'value', element2: 'value2' })}
+    locale-code="fr-fr">
+</explo-dashboard>
+```
+
+```html V0 Syntax
+<explo-dashboard
+  userGroupToken="<token>"
+  dashboardEmbedId="<id>"
+  isProduction={true}
+  environment="prod"
+  variables={JSON.stringify({ element1: "value", element2: "value2" })}>
+</explo-dashboard>
+```
+
+</CodeGroup>
+
+### Component Attributes (V1)
+
+| Attribute Name        | Type    | Description                                                                                                                                                                                                                                                      |
+| --------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| dash-user-group-token | string  | This is a string with two values concatenated together: (1) the `dashboard_id` and (2) the `group_token`. You should concatenate them with a colon between them like so: `"<dashboard_id>:<group_token>"`                                                        |
+| updateUrlParams       | boolean | This is true if not specified. When true, the page's URL params will update when the dashboard's interaction inputs (dropdown, multi-select, etc) change so direct links will have the inputs configured.                                                        |
+| isProduction          | boolean | This indicates if the web component is being embedded in a staging or production environment. This helps us track the usage of the component so we can share more accurate usage statistics with you.                                                            |
+| environment           | string  | This lets you specify the environment version that the web component is being embedded in: "production", "staging", "development", etc. If environment is not specified, it will render the most recent saved version of the dashboard.                          |
+| refresh-minutes       | number  | An optional argument that allows you to tell the dashboard to automatically refresh on a cadence.                                                                                                                                                                |
+| variables             | string  | This argument allows you to pass in values for variables on your dashboard. This will result in default values for any variables and UI dropdowns on the dashboard. Note that you must pass in a stringified JSON object using `JSON.stringify(variablesObject)` |
+| locale-code           | string  | An optional argument that overrides any localization settings for your team. This will localize your dashboard's numbers, currencies, and dates to the desired locale, if supported.                                                                             |
+
+## Typescript Type Definition
+
+If you are using TypeScript, define the embedded component within the global namespace. This needs to be defined at the top of each TypeScript file that uses the `explo-dashboard` component. You may need to exclude this block from your lint rules (e.g. @typescript-eslint/no-namespace)
+
+```javascript
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'explo-dashboard': unknown;
+        }
+    }
+}
+```

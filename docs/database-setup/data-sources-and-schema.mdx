@@ -1,0 +1,26 @@
+---
+title: "Data Sources and Schema"
+description: "This section describes the data model through which Explo organizes and connects to your databases."
+---
+
+## What are Schema?
+
+Schema are a foldering system that you can use to group your data sources by queries that will be run against them. Schema define a set of common tables between its data sources, which are referred to as synced tables. Each schema has a default data source, which serves as the source of these synced tables for that schema.
+
+Dataset queries and visualizations are configured against a schema, rather than a single dataset. When you render a dashboard for a specific user group, it will pull all data from the data source the user group is associated with for each schema when populating the view.
+
+All data sources in your schema must have the same set of tables in order for dashboards to work as expected. All dataset queries and visualizations you configure in the dashboard must run correctly against every data source you add to a schema.
+
+## What is a Data Source?
+
+A data source is a connection to a single database or data warehouse. The data pulled into your dashboards comes from a data source, and Explo supports connecting multiple data sources to your dashboards.
+
+Data sources are associated with end user groups, and this association is what tells Explo which data sources to pull from when populating your dashboards. End user groups do not have to explicitly be associated with a data source, and Explo will use your schema's default data source.
+
+You can view the data exposed to Explo for your data sources by clicking on a data source from the Data tab. From this view, you can see a list of synced tables for that data source's schema, and the data from that specific data source. You can use the dropdown to select each data source from that schema.
+
+## Why use Schema?
+
+Schema are a powerful tool that enable you to use databases of different shapes to power different elements of your dashboard. Because datasets in your dashboard are connected to a specific schema, you don't have to ensure that every data source you connect to Explo works with every query you write. 
+
+For example, you might have a set of data sources in a "Sales" schema that powers some datasets and dashboard elements and another set of data sources in a "Marketing" schema that powers others. Your customers would see their own data in each of these schemas, which makes your dashboards more flexible and informative.

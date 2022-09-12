@@ -1,0 +1,170 @@
+{
+  "name": "Names and Faces",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0069ED",
+    "light": "#4D9CFF",
+    "dark": "#0050B4",
+    "ultraLight": "#EBF3FE",
+    "ultraDark": "#003372"
+  },
+  "topbarLinks": [
+    {
+      "name": "Book a demo",
+      "url": "https://www.explo.co/book-a-demo"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Start free trial",
+    "url": "https://app.explo.co/signup"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "rectangle-terminal",
+      "url": "api-reference"
+    },
+    {
+      "name": "Case Studies",
+      "icon": "bookmark",
+      "url": "https://www.explo.co/case-studies"
+    },
+    {
+      "name": "Security",
+      "icon": "shield-halved",
+      "url": "https://security.explo.co"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list",
+      "url": "https://www.explo.co/changelog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": ["explo-help-desk", "faq"]
+    },
+    {
+      "group": "Getting Started",
+      "pages": ["getting-started/creating-dashboard"]
+    },
+    {
+      "group": "Database Setup",
+      "pages": [
+        "database-setup/connecting-to-your-database-or-data-warehouse",
+        "database-setup/data-sources-and-schema",
+        "database-setup/building-your-data-model",
+        "database-setup/data-sources-and-schema/managing-schema",
+        "database-setup/data-sources-and-schema/multiple-data-sources",
+        "database-setup/data-sources-and-schema/sync-new-tables"
+      ]
+    },
+    {
+      "group": "Creating Dashboards",
+      "pages": [
+        "creating-dashboards/variables",
+        "creating-dashboards/visualizations-1",
+        "creating-dashboards/ui-elements",
+        "creating-dashboards/drilldowns",
+        "creating-dashboards/drilldowns/bar-charts",
+        "creating-dashboards/drilldowns/data-tables",
+        "creating-dashboards/ui-elements/apply-filter-button",
+        "creating-dashboards/ui-elements/container",
+        "creating-dashboards/ui-elements/date-group-switch",
+        "creating-dashboards/ui-elements/date-picker",
+        "creating-dashboards/ui-elements/date-range-picker",
+        "creating-dashboards/ui-elements/dropdown-select",
+        "creating-dashboards/ui-elements/multi-select",
+        "creating-dashboards/ui-elements/switch",
+        "creating-dashboards/ui-elements/text",
+        "creating-dashboards/ui-elements/text-input",
+        "creating-dashboards/variables/passing-in-variables",
+        "creating-dashboards/variables/tips",
+        "creating-dashboards/variables/types-of-variables",
+        "creating-dashboards/variables/using-variables",
+        "creating-dashboards/visualizations-1/chart-level-filters",
+        "creating-dashboards/visualizations-1/goal-lines"
+      ]
+    },
+    {
+      "group": "Dashboard Features",
+      "pages": [
+        "dashboard-features/version-control",
+        "dashboard-features/styling-dashboards",
+        "dashboard-features/email-reporting-beta",
+        "dashboard-features/analytics-reporting",
+        "dashboard-features/internationalization",
+        "dashboard-features/dashboard-attributes",
+        "dashboard-features/timezones",
+        "dashboard-features/syncing-dashboard-colors",
+        "dashboard-features/dashboard-attributes/assigning-values",
+        "dashboard-features/dashboard-attributes/using-assigned-values",
+        "dashboard-features/email-reporting-beta/email-layout-configuration",
+        "dashboard-features/email-reporting-beta/email-specific-dashboard-configuration",
+        "dashboard-features/email-reporting-beta/scheduling-emails",
+        "dashboard-features/styling-dashboards/custom-fonts",
+        "dashboard-features/version-control/editing-the-current-draft",
+        "dashboard-features/version-control/embedding-environments",
+        "dashboard-features/version-control/managing-environment-tags",
+        "dashboard-features/version-control/publishing-a-new-version",
+        "dashboard-features/version-control/reverting-versions",
+        "dashboard-features/version-control/viewing-dashboard-versions"
+      ]
+    },
+    {
+      "group": "Embedding Documentation",
+      "pages": [
+        "embedding-documentation/whitelisting-your-domain",
+        "embedding-documentation/option-1-web-component",
+        "embedding-documentation/option-2-iframe",
+        "embedding-documentation/option-3-end-user-portal"
+      ]
+    },
+    {
+      "group": "API Overview",
+      "pages": [
+        "api-reference/explos-authentication",
+        "api-reference/export-dashboard-api",
+        "api-reference/dashboard-api"
+      ]
+    },
+    {
+      "group": "End User API",
+      "pages": [
+        "api-reference/end-user-api/delete",
+        "api-reference/end-user-api/get-or-create",
+        "api-reference/end-user-api/update"
+      ]
+    },
+    {
+      "group": "End User Group API",
+      "pages": [
+        "api-reference/end-user-group-api/delete",
+        "api-reference/end-user-group-api/get-or-create",
+        "api-reference/end-user-group-api/refresh-token",
+        "api-reference/end-user-group-api/update"
+      ]
+    },
+    {
+      "group": "Managing Permissions",
+      "pages": ["managing-permissions/access-groups"]
+    },
+    {
+      "group": "Security",
+      "pages": ["security/security-overview"]
+    },
+    {
+      "group": "Troubleshooting",
+      "pages": [
+        "troubleshooting/common-errors/duplicate-ambiguous-column-names",
+        "troubleshooting/common-errors/error-parsing-date-time",
+        "troubleshooting/common-errors/table-does-not-exist"
+      ]
+    }
+  ]
+}

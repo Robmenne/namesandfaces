@@ -1,0 +1,80 @@
+---
+title: "Tips"
+---
+
+### Segmenting user data
+
+`{{user_group_id}}`
+
+- The user group variable is a default variable that's already created in every dashboard.
+
+- It is important to use this variable in every dataset that a panel is built off of if you want it to be customer specific. To configure this, select the field that has your customer's ID and set it equal to `{{user_group_id}}`
+
+```sql Example
+SELECT *
+
+FROM table_1
+
+[[WHERE user_id = {{user_group_id}}]]
+```
+
+### Additional operators
+
+Variables can be used with other operators as well to achieve different filtering needs
+
+```sql
+--use the in operator when configuring a multi-select componenet
+
+[[WHERE field1 in {{element1}}]]
+
+--filter for similar values using like
+
+[[WHERE field_3 LIKE '%' || {{element3}} || '%']]
+
+--relative date and number operators
+
+[[WHERE field_3 >= {{element3}}]]
+
+```
+
+### Improving query speed by filtering before joining
+
+In general, it is best to filter tables before joining to other tables, by doing so, you can significantly cut down the calculation and query time needed to compute the entire query.
+
+Example:
+
+```sql Original Query
+SELECT *
+
+FROM models_operation
+
+INNER JOIN models_flow
+
+ON models_flow.resource_ptr_id = models_operation.flow_id
+
+INNER JOIN models_datasource
+
+ON models_datasource.id = models_operation.data_source_id
+
+[[WHERE models_datasource.team_id = {{user_group_id }}]];
+```
+
+```sql Improved Query
+SELECT *
+
+FROM models_operation
+
+INNER JOIN models_flow
+
+ON models_flow.resource_ptr_id = models_operation.flow_id
+
+INNER JOIN (SELECT *
+
+FROM models_datasource
+
+[[WHERE models_datasource.team_id = {{user_group_id }}]]
+
+) AS ds
+
+ON ds.id = models_operation.data_source_id;
+```
