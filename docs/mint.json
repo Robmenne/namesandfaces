@@ -41,7 +41,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["explo-help-desk", "faq"]
+      "pages": ["introduction", "faq"]
     },
     {
       "group": "Getting Started",
