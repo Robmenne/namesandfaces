@@ -63,7 +63,6 @@
       "pages": [
         "creating-dashboards/variables",
         "creating-dashboards/visualizations-1",
-        "creating-dashboards/ui-elements",
         "creating-dashboards/drilldowns",
         "creating-dashboards/drilldowns/bar-charts",
         "creating-dashboards/drilldowns/data-tables",
@@ -94,7 +93,6 @@
         "dashboard-features/analytics-reporting",
         "dashboard-features/internationalization",
         "dashboard-features/dashboard-attributes",
-        "dashboard-features/timezones",
         "dashboard-features/syncing-dashboard-colors",
         "dashboard-features/dashboard-attributes/assigning-values",
         "dashboard-features/dashboard-attributes/using-assigned-values",
